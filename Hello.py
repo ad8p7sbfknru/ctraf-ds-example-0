@@ -51,7 +51,6 @@ def run():
         page_icon="🚦",
     )
 
-
     st.write("# Welcome to CTraf Demo 🚦")
 
     image = Image.open('crossroad.png')
@@ -88,19 +87,16 @@ def run():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-      st.subheader("⬅️")
-      st.write("Percentage of vehicles making left turn")
+      st.write("⬅️ Percentage of vehicles making left turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d1l", on_change=dd1)
 
     with col2:
-      st.subheader("⬆️")
-      st.write("Percentage of vehicles going forward")
+      st.write("⬆️ Percentage of vehicles going forward")
       placeholder = st.empty()
       d1f_val = placeholder.text_input("", value=70, max_chars=None, key="d1f", disabled=True)
 
     with col3:
-      st.subheader("➡️")
-      st.write("Percentage of vehicles making right turn")
+      st.write("➡️ Percentage of vehicles making right turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d1r", on_change=dd1)
 
     st.divider()
@@ -118,19 +114,16 @@ def run():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-      st.subheader("⬅️")
-      st.write("Percentage of vehicles making left turn")
+      st.write("⬅️ Percentage of vehicles making left turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d2l", on_change=dd2)
 
     with col2:
-      st.subheader("⬆️")
-      st.write("Percentage of vehicles going forward")
+      st.write("⬆️ Percentage of vehicles going forward")
       placeholder = st.empty()
       d2f_val = placeholder.text_input("", value=70, max_chars=None, key="d2f", disabled=True)
 
     with col3:
-      st.subheader("➡️")
-      st.write("Percentage of vehicles making right turn")
+      st.write("➡️ Percentage of vehicles making right turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d2r", on_change=dd2)
 
     st.divider()
@@ -148,19 +141,16 @@ def run():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-      st.subheader("⬅️")
-      st.write("Percentage of vehicles making left turn")
+      st.write("⬅️ Percentage of vehicles making left turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d3l", on_change=dd3)
 
     with col2:
-      st.subheader("⬆️")
-      st.write("Percentage of vehicles going forward")
+      st.write("⬆️ Percentage of vehicles going forward")
       placeholder = st.empty()
       d3f_val = placeholder.text_input("", value=70, max_chars=None, key="d3f", disabled=True)
 
     with col3:
-      st.subheader("➡️")
-      st.write("Percentage of vehicles making right turn")
+      st.write("➡️ Percentage of vehicles making right turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d3r", on_change=dd3)
 
     st.divider()
@@ -178,19 +168,16 @@ def run():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-      st.subheader("⬅️")
-      st.write("Percentage of vehicles making left turn")
+      st.write("⬅️ Percentage of vehicles making left turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d4l", on_change=dd4)
 
     with col2:
-      st.subheader("⬆️")
-      st.write("Percentage of vehicles going forward")
+      st.write("⬆️ Percentage of vehicles going forward")
       placeholder = st.empty()
       d4f_val = placeholder.text_input("", value=70, max_chars=None, key="d4f", disabled=True)
 
     with col3:
-      st.subheader("➡️")
-      st.write("Percentage of vehicles making right turn")
+      st.write("➡️ Percentage of vehicles making right turn")
       st.slider("", min_value=0, max_value=49, value=15, key="d4r", on_change=dd4)
 
     st.divider()
@@ -208,28 +195,20 @@ def run():
     #  st.session_state.d1f = str(70)
 
 
+    delta = [d1, d2, d3, d4, 0, 0, 0, 0]
+    st.json(delta)
+
+    dir1 = [int(st.session_state.d1l)/100, int(st.session_state.d1f)/100, int(st.session_state.d1r)/100]
+    dir2 = [int(st.session_state.d2l)/100, int(st.session_state.d2f)/100, int(st.session_state.d2r)/100]
+    dir3 = [int(st.session_state.d3l)/100, int(st.session_state.d3f)/100, int(st.session_state.d3r)/100]
+    dir4 = [int(st.session_state.d4l)/100, int(st.session_state.d4f)/100, int(st.session_state.d4r)/100]
+
+    dir = [dir1, dir2, dir3, dir4]
+    st.json(dir)
 
 
+    st.sidebar.success("CTraf Demo 🚦")
 
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
 
 
 if __name__ == "__main__":
